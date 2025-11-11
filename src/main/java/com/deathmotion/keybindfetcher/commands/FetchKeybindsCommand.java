@@ -38,9 +38,8 @@ public final class FetchKeybindsCommand {
             return send(ctx, accent("No keybinds found.", ChatFormatting.GRAY));
         }
 
-        // Log the key IDs (not their translated values)
         String keybindList = Arrays.stream(mappings)
-                .map(KeyMapping::getName)     // e.g. "key.jump"
+                .map(KeyMapping::getName)
                 .collect(Collectors.joining("\n"));
         LOGGER.info("Detected Keybinds:\n" + keybindList);
 
