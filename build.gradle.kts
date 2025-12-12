@@ -7,7 +7,7 @@ version = "1.0.0"
 group = "com.deathmotion.keybindfetcher"
 
 base {
-    archivesName.set("${project.name}-${libs.versions.minecraft.get()}.X")
+    archivesName.set("${project.name}-${libs.versions.minecraft.get()}")
 }
 
 dependencies {
