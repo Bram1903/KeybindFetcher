@@ -40,7 +40,10 @@ public final class FetchKeybindsCommand {
 
         String keybindList = Arrays.stream(mappings)
                 .map(KeyMapping::getName)
+                .sorted()
+                .map(name -> "\"" + name + "\",")
                 .collect(Collectors.joining("\n"));
+
         LOGGER.info("Detected Keybinds:\n" + keybindList);
 
         return send(ctx, renderList("Keybinds", Arrays.stream(mappings)));
@@ -91,7 +94,7 @@ public final class FetchKeybindsCommand {
 
         MutableComponent hover = Component.empty()
                 .append(accent("Category: ", ChatFormatting.GRAY))
-                .append(Component.translatable(km.getCategory()).withStyle(ChatFormatting.YELLOW))
+                .append(km.getCategory().label()).withStyle(ChatFormatting.YELLOW)
                 .append(accent("\nClick to copy key id", ChatFormatting.DARK_GRAY));
 
         return bullet()
