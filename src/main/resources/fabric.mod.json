@@ -1,19 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "keybind-fetcher",
+  "id": "translatable-fetcher",
   "version": "${version}",
-  "name": "Keybind Fetcher",
-  "description": "Fetches all registered keybinds in the game.",
+  "name": "Translatable Fetcher",
+  "description": "Fetches all translatable keys in the game.",
   "author": "Bram",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.deathmotion.keybindfetcher.KeybindFetcher"
+      "com.deathmotion.translatablefetcher.TranslatableFetcher"
     ]
   },
+  "mixins": [
+    "TranslatableFetcher.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": ">=1.21.10",
+    "minecraft": ">=1.21.11",
     "fabric-api": "*"
   }
 }
